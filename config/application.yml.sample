@@ -1,0 +1,2 @@
+# copy this file to application.yml and replace values with your own.
+github_token: xxxx

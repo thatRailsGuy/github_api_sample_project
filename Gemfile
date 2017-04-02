@@ -41,3 +41,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Gems added by Clint
 gem 'better_errors'
 gem 'httparty'
+gem 'figaro'
