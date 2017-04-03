@@ -42,3 +42,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'better_errors'
 gem 'httparty'
 gem 'figaro'
+gem 'andand'
+gem 'pry-rails', :group => :development
