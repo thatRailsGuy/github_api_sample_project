@@ -20,6 +20,8 @@
 
 class Pull < ApplicationRecord
   belongs_to :repo, primary_key: "gh_id", foreign_key: "repo_gh_id"
+  scope :merged, -> { where.not(gh_merged_at: nil) }
+  scope :unmerged, -> { where(gh_merged_at: nil) }
 
   def self.create_from_json(pull_data)
     pull = Pull.find_or_create_by!(gh_id: pull_data["id"], repo_gh_id: pull_data["base"]["repo"]["id"])
@@ -37,6 +39,6 @@ class Pull < ApplicationRecord
   end
 
   def merged?
-
+    !gh_merged_at.nil?
   end
 end
