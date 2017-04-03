@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: pulls
+#
+#  id               :integer          not null, primary key
+#  gh_id            :integer
+#  repo_gh_id       :integer
+#  state            :string
+#  gh_number        :integer
+#  title            :string
+#  body             :text
+#  gh_created_at    :datetime
+#  gh_updated_at    :datetime
+#  gh_closed_at     :datetime
+#  gh_merged_at     :datetime
+#  merge_commit_sha :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 class Pull < ApplicationRecord
   belongs_to :repo, primary_key: "gh_id", foreign_key: "repo_gh_id"
 
@@ -14,5 +34,9 @@ class Pull < ApplicationRecord
       gh_closed_at: pull_data["closed_at"],
       gh_merged_at: pull_data["merged_at"])
     pull
+  end
+
+  def merged?
+
   end
 end

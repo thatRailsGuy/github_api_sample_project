@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: organizations
+#
+#  id         :integer          not null, primary key
+#  login      :string
+#  gh_id      :integer
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Organization < ApplicationRecord
   has_many :repos, primary_key: "gh_id", foreign_key: "organization_gh_id"
   has_many :pulls, through: :repos
