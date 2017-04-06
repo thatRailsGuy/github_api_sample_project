@@ -27,4 +27,8 @@ class Repo < ApplicationRecord
   def pull_pulls_from_github
     GithubService.new(organization.login).all_pulls(name, "all"){|pull_data| Pull.create_from_json(pull_data)}
   end
+
+  def closed_pulls
+    pulls.merged.count
+  end
 end

@@ -22,6 +22,10 @@ class GithubService
     self.class.get("/repos/#{@org}/#{repo}/pulls?state=#{state}&page=#{page}", headers: @default_headers)
   end
 
+  def pull_commits(repo="lodash", number)
+    self.class.get("/repos/#{@org}/#{repo}/pulls/#{number}/commits", headers: @default_headers)
+  end
+
   def rate_limit
     self.class.get("/rate_limit", headers: @default_headers)
   end

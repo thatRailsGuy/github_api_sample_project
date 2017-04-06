@@ -32,4 +32,19 @@ class Organization < ApplicationRecord
     end
     repos.each {|repo| repo.pull_pulls_from_github}
   end
+
+  def closed_pulls
+    Organization.first.pulls.merged.count
+  end
+
+  def three_months_stats
+    stats = []
+    (1..12).each do |x|
+      stats << {x => {
+        merged: pulls.merged_x_weeks_ago(x).count,
+        average_merge_time: pulls.merged_x_weeks_ago(x).average_merge_time,
+        median_merge_time: pulls.merged_x_weeks_ago(x).median_merge_time}}
+    end
+    stats
+  end
 end

@@ -16,6 +16,7 @@
 #  merge_commit_sha :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  first_commit_at  :datetime
 #
 
 require 'test_helper'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402050915) do
+ActiveRecord::Schema.define(version: 20170405213532) do
 
   create_table "organizations", force: :cascade do |t|
     t.string   "login"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170402050915) do
     t.string   "merge_commit_sha"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "first_commit_at"
   end
 
   create_table "repos", force: :cascade do |t|
